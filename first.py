@@ -6,7 +6,7 @@ data = urlopen('https://lenta.ru/rss').read().decode('utf8')
 root = ET.fromstring(data)
 
 arr = []
-for child in root.iter('item'):
+for child in root:
     if child.tag == 'item':
         arr.append({'pubDate': child.find('pubDate').text, 'title': child.find('title').text})
 
